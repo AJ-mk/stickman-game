@@ -1,0 +1,307 @@
+:root {
+  --standart-text-color: white;
+  --standart-font-size: 18px;
+  --standart-font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+  --standart-nav-item-bg-color: #494f52;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: hsl(0, 0%, 10%);
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+ul {
+  margin: 0;
+  padding: 0;
+}
+li {
+  list-style: none;
+  margin: 0.7rem;
+}
+
+/* --- Общие стили --- */
+
+/* Окна */
+.main-window,
+.select-chars-window,
+.settings-window,
+.input-sets-window,
+.lang-sets-window,
+.exit {
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+  display: none; /* flex */
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: var(--standart-text-color);
+  font-family: var(--standart-font-family);
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+.main-window .nav-item,
+.settings-window .nav-item {
+  width: 200px;
+  background-color: var(--standart-nav-item-bg-color);
+  padding: 10px;
+}
+
+/* Навигационный пункт */
+.nav-item {
+  text-align: center;
+  font-family: var(--standart-font-family);
+  font-size: var(--standart-font-size);
+  color: var(--standart-text-color);
+  border: none;
+  border-radius: 0.6rem;
+  transition-property: box-shadow;
+  transition-duration: 0.4s;
+}
+
+/* Анимация треугольников */
+.current-option-select {
+  position: relative;
+  box-shadow: 0px 0px 10px 0px var(--standart-text-color);
+}
+.current-option-select::before,
+.current-option-select::after {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--standart-text-color);
+  font-size: 24px;
+}
+.current-option-select::before {
+  content: "▶";
+  left: -22px;
+  animation: triangle-animation-left 0.5s ease-in-out infinite alternate;
+}
+.current-option-select::after {
+  content: "◀";
+  right: -22px;
+  animation: triangle-animation-right 0.5s ease-in-out infinite alternate;
+}
+@keyframes triangle-animation-left {
+  0% {
+    transform: translateX(0) translateY(-50%);
+  }
+  50% {
+    transform: translateX(-5px) translateY(-50%);
+  }
+  100% {
+    transform: translateX(0) translateY(-50%);
+  }
+}
+@keyframes triangle-animation-right {
+  0% {
+    transform: translateX(0) translateY(-50%);
+  }
+  50% {
+    transform: translateX(5px) translateY(-50%);
+  }
+  100% {
+    transform: translateX(0) translateY(-50%);
+  }
+}
+
+/* Анимация синего и красного градиента */
+.blue-gradient-animation {
+  background: linear-gradient(to right, blue, blue, blue, white, blue);
+}
+.red-gradient-animation {
+  background: linear-gradient(to left, red, red, red, white, red);
+}
+.blue-gradient-animation,
+.red-gradient-animation {
+  background-size: 200%;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: animation-gradient 2.5s linear infinite;
+}
+@keyframes animation-gradient {
+  to {
+    background-position: 200%;
+  }
+}
+
+.h1 {
+  font-size: 2em;
+  margin: 0.5em 0 0.5em 0;
+  text-align: center;
+  align-self: center;
+  color: var(--standart-text-color);
+}
+.h2 {
+  font-size: 1.5em;
+  padding: 0.4rem 0 0.4rem 0;
+  margin: 0.4em;
+  text-align: center;
+  align-self: center;
+  color: var(--standart-text-color);
+}
+.mb-0 {
+  margin-bottom: 0;
+}
+.mt-0 {
+  margin-top: 0;
+}
+
+/* --- Специальные стили --- */
+
+/* Меню выбора персонажей */
+.select-chars-window {
+  overflow: hidden;
+  display: none;
+  opacity: 0;
+}
+.select-chars-window .view-screen {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  z-index: 1;
+  background-color: hsl(120, 100%, 20%);
+  /* background-image: url("images/");
+  background-size: contain; */
+}
+.select-chars-window .characters-selection .overlay {
+  position: absolute;
+  background-color: rgb(0, 0, 0, 0.7);
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+}
+.select-chars-window .characters-selection {
+  width: 100%;
+  height: 180px;
+  color: var(--standart-text-color);
+  position: absolute;
+  bottom: 0;
+  z-index: 3;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1.5em;
+}
+.select-chars-window .characters-selection .nav-item {
+  width: 100px;
+  height: 100px;
+  position: relative;
+  z-index: 3;
+  border: 3px outset grey;
+  border-radius: 0.6rem;
+  background-image: url("../images/dragon-logo_grey.png");
+  background-size: 140%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-color: hsl(0, 0%, 25%);
+  transition: 0.4s;
+}
+.select-chars-window .characters-selection .nav-item span {
+  visibility: hidden;
+}
+/* Эффект при выборе */
+.char-select {
+  position: relative;
+  box-shadow: 0 0 30px 0px blue;
+  transition: 0.4s;
+}
+.char-select::before {
+  content: "P1";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 105%;
+  line-height: 110px;
+  border-radius: 0.6rem;
+  text-align: center;
+  font-size: 3em;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+  background-color: hsl(240, 100%, 35%);
+  opacity: 0.7;
+}
+.char-selected {
+  position: relative;
+  box-shadow: 0 0 30px 0px black;
+  opacity: 0.5;
+}
+
+/* Настройки ввода, настройки языка и окно выхода */
+.input-sets-window {
+  justify-content: unset;
+}
+.input-sets-window .input-settings,
+.lang-sets-window .lang-change-wrapper,
+.exit .exit-wrapper {
+  width: 100%;
+  position: relative;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  align-content: center;
+  flex-wrap: wrap;
+}
+.input-sets-window .input-settings .P1-input,
+.input-sets-window .input-settings .P2-input,
+.lang-sets-window .lang-change-wrapper .langs-list {
+  flex-basis: 350px;
+  max-width: 450px;
+  flex-grow: 0.2;
+  flex-shrink: 0;
+  margin: 18px;
+}
+.input-sets-window .input-settings .keys .nav-item,
+.lang-sets-window .lang-change-wrapper .nav-item {
+  color: #acacac;
+}
+.input-sets-window .input-settings .keys .nav-item,
+.lang-sets-window .lang-change-wrapper .nav-item {
+  margin: 5px;
+  padding: 0.4em;
+  border-radius: 0.4rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.input-sets-window .input-settings .keys .key-value,
+.lang-sets-window .lang-change-wrapper .nav-item .lang-status {
+  text-transform: uppercase;
+  font-weight: bold;
+}
+.input-sets-window .input-settings .keys .current-option-select,
+.lang-sets-window .lang-change-wrapper .current-option-select {
+  background-color: var(--standart-nav-item-bg-color);
+  color: var(--standart-text-color);
+  transition-property: box-shadow;
+  transition-duration: 0.4s;
+}
+
+/* Выход */
+.exit .exit-wrapper .exit-list {
+  display: flex;
+  /* flex-direction: row; */
+}
+.exit .exit-wrapper .exit-list .nav-item {
+  width: 100px;
+  padding: 10px 20px;
+  color: var(--standart-text-color);
+  background-color: #494f52;
+  margin: 1.5rem;
+}
+
+/* Временные стили */
+.muted {
+  opacity: 0.2;
+}

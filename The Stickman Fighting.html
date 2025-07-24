@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>The Stickman Fighting</title>
+
+    <link rel="stylesheet" href="./assets/css/style.css" />
+
+    <script src="./assets/js/interface.js" defer></script>
+    <script src="./assets/js/game.js" defer></script>
+  </head>
+
+  <body>
+    <!-- Выход -->
+    <div class="exit">
+      <h1 class="h1" data-i18n="exit-question">
+        Are you sure you want to exit?
+      </h1>
+      <div class="exit-wrapper">
+        <ul class="exit-list">
+          <li class="nav-item" data-i18n="exit-no">No</li>
+          <li class="nav-item" data-i18n="exit-yes">Yes</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Главное меню -->
+    <div class="main-window">
+      <ul>
+        <li class="nav-item" data-i18n="main-local-2p-entre">Local</li>
+        <li class="nav-item" data-i18n="main-sets-entre">Settings</li>
+      </ul>
+    </div>
+
+    <!-- Меню выбора персонажей -->
+    <div class="select-chars-window">
+      <div class="view-screen">Veiw screen</div>
+      <ul class="characters-selection">
+        <li class="overlay"></li>
+        <li class="nav-item"><span>1</span></li>
+        <li class="nav-item"><span>2</span></li>
+        <li class="nav-item"><span>3</span></li>
+        <li class="nav-item"><span>4</span></li>
+      </ul>
+    </div>
+
+    <!-- Меню настроек -->
+    <div class="settings-window">
+      <ul>
+        <li class="nav-item" data-i18n="sets-input-entre">Input settings</li>
+        <li class="nav-item" data-i18n="sets-lang-entre">Language settings</li>
+      </ul>
+    </div>
+
+    <!-- Настройки ввода -->
+    <div class="input-sets-window">
+      <h1 class="h1 mb-0" data-i18n="sets-input-header">Input settings</h1>
+      <div class="input-settings">
+        <!-- Input - P1 -->
+        <div class="P1-input">
+          <h1
+            class="h1 blue-gradient-animation mt-0"
+            data-i18n="sets-P1-header"
+          >
+            P1 input
+          </h1>
+          <div class="profile">
+            <h2 class="nav-item h2">Profile 1</h2>
+            <ul class="keys">
+              <li class="nav-item">
+                <span class="key-name" data-i18n="sets-up">Up</span>
+                <span class="key-value">w</span>
+              </li>
+              <li class="nav-item">
+                <span class="key-name" data-i18n="sets-down">Down</span>
+                <span class="key-value">s</span>
+              </li>
+              <li class="nav-item">
+                <span class="key-name" data-i18n="sets-left">Left</span>
+                <span class="key-value">a</span>
+              </li>
+              <li class="nav-item">
+                <span class="key-name" data-i18n="sets-right">Right</span>
+                <span class="key-value">d</span>
+              </li>
+              <li class="nav-item">
+                <span class="key-name" data-i18n="sets-front-punch"
+                  >Front punch (1)</span
+                >
+                <span class="key-value">j</span>
+              </li>
+              <li class="nav-item">
+                <span class="key-name" data-i18n="sets-back-punch"
+                  >Back punch (2)</span
+                >
+                <span class="key-value">i</span>
+              </li>
+              <li class="nav-item">
+                <span class="key-name" data-i18n="sets-front-kick"
+                  >Front kick (3)</span
+                >
+                <span class="key-value">k</span>
+              </li>
+              <li class="nav-item">
+                <span class="key-name" data-i18n="sets-back-kick"
+                  >Back kick (4)</span
+                >
+                <span class="key-value">l</span>
+              </li>
+              <li class="nav-item">
+                <span class="key-name" data-i18n="sets-amplifier"
+                  >Amplifier</span
+                >
+                <span class="key-value">o</span>
+              </li>
+              <li class="nav-item">
+                <span class="key-name" data-i18n="sets-throw">Throw</span>
+                <span class="key-value">u</span>
+              </li>
+              <li class="nav-item">
+                <span class="key-name" data-i18n="sets-stance-change"
+                  >Stance change</span
+                >
+                <span class="key-value">p</span>
+              </li>
+              <li class="nav-item">
+                <span class="key-name" data-i18n="sets-block">Block</span>
+                <span class="key-value">;</span>
+              </li>
+              <hr />
+              <li class="nav-item">
+                <span class="key-name" data-i18n="sets-save">Save</span>
+              </li>
+              <li class="nav-item">
+                <span class="key-name" data-i18n="sets-reset">Reset</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <!-- end -->
+        <!-- Input - P2 -->
+        <div class="P2-input muted">
+          <h1 class="h1 red-gradient-animation mt-0" data-i18n="sets-P2-header">
+            P2 input
+          </h1>
+          <div class="profile">
+            <h2 class="nav-item h2">Profile 1</h2>
+            <ul class="keys">
+              <li class="nav-item">
+                <span class="key-name" data-i18n="sets-up">Up</span>
+                <span class="key-value">w</span>
+              </li>
+              <li class="nav-item">
+                <span class="key-name" data-i18n="sets-down">Down</span>
+                <span class="key-value">s</span>
+              </li>
+              <li class="nav-item">
+                <span class="key-name" data-i18n="sets-left">Left</span>
+                <span class="key-value">a</span>
+              </li>
+              <li class="nav-item">
+                <span class="key-name" data-i18n="sets-right">Right</span>
+                <span class="key-value">d</span>
+              </li>
+              <li class="nav-item">
+                <span class="key-name" data-i18n="sets-front-punch"
+                  >Front punch (1)</span
+                >
+                <span class="key-value">j</span>
+              </li>
+              <li class="nav-item">
+                <span class="key-name" data-i18n="sets-back-punch"
+                  >Back punch (2)</span
+                >
+                <span class="key-value">i</span>
+              </li>
+              <li class="nav-item">
+                <span class="key-name" data-i18n="sets-front-kick"
+                  >Front kick (3)</span
+                >
+                <span class="key-value">k</span>
+              </li>
+              <li class="nav-item">
+                <span class="key-name" data-i18n="sets-back-kick"
+                  >Back kick (4)</span
+                >
+                <span class="key-value">l</span>
+              </li>
+              <li class="nav-item">
+                <span class="key-name" data-i18n="sets-amplifier"
+                  >Amplifier</span
+                >
+                <span class="key-value">o</span>
+              </li>
+              <li class="nav-item">
+                <span class="key-name" data-i18n="sets-throw">Throw</span>
+                <span class="key-value">u</span>
+              </li>
+              <li class="nav-item">
+                <span class="key-name" data-i18n="sets-stance-change"
+                  >Stance change</span
+                >
+                <span class="key-value">p</span>
+              </li>
+              <li class="nav-item">
+                <span class="key-name" data-i18n="sets-block">Block</span>
+                <span class="key-value">;</span>
+              </li>
+              <hr />
+              <li class="nav-item">
+                <span class="key-name" data-i18n="sets-save">Save</span>
+              </li>
+              <li class="nav-item">
+                <span class="key-name" data-i18n="sets-reset">Reset</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <!-- end -->
+      </div>
+    </div>
+
+    <!-- Настройки языка -->
+    <div class="lang-sets-window">
+      <h1 class="h1 mb-0" data-i18n="lang-sets-header">Select language</h1>
+      <div class="lang-change-wrapper">
+        <ul class="langs-list">
+          <li class="nav-item">
+            <span>English</span><span class="lang-status" data-lang="en"></span>
+          </li>
+          <li class="nav-item">
+            <span>Русский</span><span class="lang-status" data-lang="ru"></span>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div
+      class="gameplay-interface"
+      style="position: relative; display: inline-block"
+    >
+      <div
+        class="top-state-bar"
+        style="
+          position: absolute;
+          display: flex;
+          width: 100%;
+          align-items: center;
+          padding: 20px;
+        "
+      >
+        <div style="background-color: yellow; height: 40px; width: 100%"></div>
+        <div
+          style="
+            background-color: red;
+            height: 60px;
+            width: 70px;
+            flex-shrink: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+          "
+        >
+          <span class="timer-id" style="font-size: 2rem">
+            <!-- &infin; -->
+            99
+          </span>
+        </div>
+        <div style="background-color: yellow; height: 40px; width: 100%"></div>
+      </div>
+      <canvas class="canvas"></canvas>
+    </div>
+  </body>
+</html>
